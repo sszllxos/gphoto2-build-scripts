@@ -4,6 +4,6 @@ REPO_NAME=libusb
 REPO_URL=https://github.com/libusb/libusb
 BINARY_PATH=lib/libusb-1.0.so
 
-export CONFIGURE_ARGS=--disable-udev
+export CONFIGURE_ARGS="--disable-udev --enable-examples-build"
 
 /scripts/build-generic $REPO_NAME $REPO_URL $BINARY_PATH
