@@ -3,5 +3,7 @@
 REPO_NAME=libpopt
 REPO_URL=https://github.com/rpm-software-management/popt
 
+git clone --branch popt-1.19-release --recursive ${REPO_URL} ${REPO_NAME}
+
 /scripts/build-generic $REPO_NAME $REPO_URL $LIBRARY_NAME
 
