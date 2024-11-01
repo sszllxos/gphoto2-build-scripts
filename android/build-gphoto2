@@ -10,6 +10,12 @@ REPO_NAME=gphoto2
 REPO_URL=https://github.com/gphoto/gphoto2
 BINARY_PATH=bin/gphoto2
 
-git clone --recursive ${REPO_URL} ${REPO_NAME}
+if [ ! -d ${REPO_NAME} ]; then
+    git clone --recursive ${REPO_URL} ${REPO_NAME}
+    cd ${REPO_NAME}
+    sed -i '/CFLAGS="\$CFLAGS -Wall"/s/^/#/' configure.ac
+    sed -i '/CFLAGS="\$CFLAGS -Wmissing-declarations -Wmissing-prototypes -Werror=incompatible-pointer-types -Werror=implicit -Werror=int-conversion"/s/^/#/' configure.ac
+    cd ..
+fi
 
 /scripts/build-generic $REPO_NAME $REPO_URL $BINARY_PATH

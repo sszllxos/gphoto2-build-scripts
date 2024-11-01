@@ -86,6 +86,12 @@ export PKG_CONFIG_PATH=${PREFIX}/lib/pkgconfig
 
 # run "../configure --help" to see all available command line switches, sometimes they must be tweaked
 # here is the main difference when we build a project from sources for Android platform
+if [ "$REPO_NAME" == "gphoto2" ]; then
+    export LDFLAGS="${LDFLAGS} --sysroot=${SYSROOT} -L${SYSROOT}/usr/lib -L${PREFIX}/lib -pie /workspace/_prefix/lib/libltdl.so"
+else
+    export LDFLAGS="${LDFLAGS} --sysroot=${SYSROOT} -L${SYSROOT}/usr/lib -L${PREFIX}/lib -pie"
+fi
+
 ../configure --host=${CROSS_COMPILE} --with-sysroot=${SYSROOT} --disable-rpath --prefix=${PREFIX} ${CONFIGURE_ARGS}
 
 make -j6
