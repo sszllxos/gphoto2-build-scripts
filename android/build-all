@@ -11,6 +11,6 @@ set -e
 
 # Build gphoto2
 # /scripts/build-libpopt
-#/scripts/build-gphoto2
+# /scripts/build-gphoto2
 
 echo "Done! Build artifacts are in /workspace/_prefix"
