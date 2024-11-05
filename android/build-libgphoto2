@@ -7,11 +7,11 @@ set -x
 set -e
 
 REPO_NAME=libgphoto2
-REPO_URL=https://github.com/gphoto/libgphoto2
-# REPO_URL=https://github.com/sszllxos/libgphoto2
+# REPO_URL=https://github.com/gphoto/libgphoto2
+REPO_URL=https://github.com/sszllxos/libgphoto2
 
 export CONFIGURE_ARGS="camlibdir=/data/data/com.sszllx.knativecanon/cache"
-# export BRANCH="-b camera_detected"
+export BRANCH="-b camera_detected"
 
 /scripts/build-generic $REPO_NAME $REPO_URL $BINARY_PATH
 
