@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# CODEPATH="/exdata3/lijing/code"
-CODEPATH="/data/code"
+CODEPATH="/exdata3/lijing/code"
+# CODEPATH="/data/code"
 
 if [ "$1" == "build" ]; then
     echo "Building Docker image..."

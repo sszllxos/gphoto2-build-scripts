@@ -16,3 +16,11 @@ cp ${CODEPATH}/workspace/_prefix/lib/libusb-1.0.so ${CODEPATH}/knativecanon/app/
 cp ${CODEPATH}/workspace/_prefix/lib/libexif.so ${CODEPATH}/knativecanon/app/src/main/cpp/libs/arm64-v8a/
 cp ${CODEPATH}/workspace/_prefix/lib/libltdl.so ${CODEPATH}/knativecanon/app/src/main/cpp/libs/arm64-v8a/
 cp ${CODEPATH}/workspace/_prefix/lib/libpopt.so ${CODEPATH}/knativecanon/app/src/main/cpp/libs/arm64-v8a/
+
+rm -rf /tmp/test
+mkdir -p /tmp/test/libgphoto2/2.5.31.1/ /tmp/test/libgphoto2_port/0.12.2/
+cp ${CODEPATH}/workspace/libgphoto2/_build/camlibs/.libs/ptp2.so /tmp/test/libgphoto2/2.5.31.1/
+cp ${CODEPATH}/workspace/libgphoto2/_build/libgphoto2_port/.libs/usb1.so /tmp/test/libgphoto2_port/0.12.2/
+cd /tmp/test
+zip libs.zip * -r
+cp libs.zip ${CODEPATH}/knativecanon/app/src/main/assets
